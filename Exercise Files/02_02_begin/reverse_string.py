@@ -10,6 +10,6 @@ string = "gninraeL nIdekniL htiw tol a nraeL"
 reversed_string = ""
 s = stack.Stack()
 
-# Your solution here.
+reversed_string = string[::-1]
 
 print(reversed_string)
