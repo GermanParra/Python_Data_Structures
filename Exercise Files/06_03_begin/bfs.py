@@ -10,7 +10,20 @@ from queue_ll import Queue
 
 
 def bfs(maze, start, goal):
-    pass
+    queue = Queue()
+    queue.enqueue(start)
+    predecessors = {start: None}
+
+    while not queue.is_empty():
+        curr = queue.dequeue()
+        if curr == goal:
+            return get_path(predecessors, start, goal)
+        for d in offsets:
+            neighbor = (curr[0] + offsets[d][0], curr[1] + offsets[d][1])
+            if is_legal_pos(maze, neighbor) and neighbor not in predecessors:
+                queue.enqueue(neighbor)
+                predecessors[neighbor] = curr
+    return None
 
 
 if __name__ == "__main__":
@@ -23,8 +36,8 @@ if __name__ == "__main__":
 
     # Test 2
     maze = read_maze("mazes/mini_maze_bfs.txt")
-    # for row in maze:
-    #     print(row)
+    for row in maze:
+        print(row)
     start_pos = (0, 0)
     goal_pos = (2, 2)
     result = bfs(maze, start_pos, goal_pos)
