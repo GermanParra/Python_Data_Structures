@@ -26,6 +26,14 @@ def dfs(maze, start, goal):
 
 
 if __name__ == "__main__":
+
+    # # Challenge
+    # maze = [[0] * 4 for row in range(4)]
+    # start_pos = (0, 0)
+    # goal_pos = (3, 3)
+    # result = dfs(maze, start_pos, goal_pos)
+    # print(result)
+
     # Test 1
     maze = [[0] * 3 for row in range(3)]
     start_pos = (0, 0)
